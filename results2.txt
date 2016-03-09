@@ -1,4 +1,1 @@
-pass,www.gizmodo.com
-fail,www.google.com
-pass,www.dpmclimbing.compass,www.gizmodo.com
-pass,www.gizmodo.com
+fail,www.gizmodo.com, www.google.com, www.dpmclimbing.comfail,www.gizmodo.com 
