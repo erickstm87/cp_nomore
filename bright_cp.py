@@ -10,7 +10,7 @@ import re
 file1 = open('basics_stage3.txt', 'r')
 #new = 1
 new_file = []
-b_rowser = input('do you want to run this in safari, chrome, or firefox? Make sure to type your choice exactly as it appears \n')
+b_rowser = input('do you want to run this in safari, chrome, ie, or firefox? Make sure to type your choice exactly as it appears \n')
 #b_rowser = 'firefox'
 if b_rowser == 'safari':
     b = webbrowser.get('safari')
@@ -22,7 +22,8 @@ elif b_rowser == 'firefox':
     b = webbrowser.get('firefox')
     #for row in file1:
 	#	new_file.append(row)
-
+elif b_rowser == 'ie':
+	b = webbrowser.get('c:\\program files\\internet explorer\\iexplore.exe') 
 
 for i in file1:
 	'''urls = i.split(',')
