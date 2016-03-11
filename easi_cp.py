@@ -17,24 +17,26 @@ elif b_rowser == 'chrome':
 elif b_rowser == 'firefox':
     b = webbrowser.get('firefox')
    
-with open('easi.csv','w') as fh:
+with open('easi.csv','r') as fh:
 	reader = csv.reader(fh)
 	for row in reader:
 		for c,j in enumerate(row):
 	    		if 'https' in j:
 	    			print(row)
 	    			b.open(j,new=0)
-	    			control = raw_input('hit enter for next test case, skip to skip the test case, or fail to indicate the test case as failed \n')
-					if control == 'fail':
-						x = raw_input('why did it fail? \n')
-						#else:
-						with open('results.txt', 'a') as f:
-				    			f.write('fail(%s),'% x + r) 
-					elif control == 'skip':
-						with open('results.txt','a') as f:
-								f.write('skipped,'+r)
-					else:
-						with open('results.txt', 'a') as f:
-				    			f.write('pass,' + r)
-						continue
-		
+				control = raw_input('hit enter for next test case, skip to skip the test case, or fail to indicate the test case as failed \n')
+				if control == 'fail':
+					x = raw_input('why did it fail? \n')
+					with open('results.txt', 'a') as f:
+			    			f.write('fail(%s),'% x + j + '\n') 
+			    			continue
+				elif control == 'skip':
+					with open('results.txt','a') as f:
+							f.write('skipped,'+ j + '\n')
+							continue
+				else:
+					with open('results.txt', 'a') as f:
+			    			f.write('pass,' + j + '\n')
+			    			continue
+					continue
+	
