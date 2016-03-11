@@ -6,7 +6,7 @@ from subprocess import call
 import re
 import csv
 
-b_rowser = raw_input('do you want to run this in safari, chrome, or firefox? Make sure to type your choice exactly as it appears \n')
+b_rowser = raw_input('do you want to run this in safari, chrome, ie, or firefox? Make sure to type your choice exactly as it appears \n')
 #b_rowser = 'firefox'
 if b_rowser == 'safari':
     b = webbrowser.get('safari')
@@ -16,7 +16,8 @@ elif b_rowser == 'chrome':
     bashCommand = "sudo killall 'google' "
 elif b_rowser == 'firefox':
     b = webbrowser.get('firefox')
-   
+elif b_rowser == 'ie':
+	b = webbrowser.get('c:\\program files\\internet explorer\\iexplore.exe') 
 with open('easi.csv','r') as fh:
 	reader = csv.reader(fh)
 	for row in reader:
