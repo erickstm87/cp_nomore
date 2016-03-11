@@ -1,17 +1,16 @@
 #!/usr/bin/env python
 import webbrowser
-import numpy as np
 import sys
 import os
 import pyautogui
 from subprocess import call
 import re
-from StringIO import StringIO
 
-file1 = open('easi_urls.txt', 'r')
+
+file1 = open('basics_stage3.txt', 'r')
 #new = 1
 new_file = []
-b_rowser = raw_input('do you want to run this in safari, chrome, or firefox? Make sure to type your choice exactly as it appears \n')
+b_rowser = input('do you want to run this in safari, chrome, or firefox? Make sure to type your choice exactly as it appears \n')
 #b_rowser = 'firefox'
 if b_rowser == 'safari':
     b = webbrowser.get('safari')
@@ -26,19 +25,24 @@ elif b_rowser == 'firefox':
 
 
 for i in file1:
-	#urls = i.split(',')
-	'''for url in urls:
+	'''urls = i.split(',')
+	for url in urls:
 		url_trimmed = url.strip()
 		new = 1'''
 	b.open(i,new=1)
 	print(i)
-	control = raw_input('hit n for next test case or fail to indicate the test case as failed \n')
-	if control == 'n':
+	control = input('hit enter for next test case, skip to skip the test case, or fail to indicate the test case as failed \n')
+	if control == 'fail':
+		x = input('why did it fail? \n')
+		#else:
+		with open('results2.txt', 'a') as f:
+    			f.write('fail(%s),'% x + i) 
+	elif control == 'skip':
+		with open('results2.txt','a') as f:
+				f.write('skipped,'+i)
+	else:
 		with open('results2.txt', 'a') as f:
     			f.write('pass,' + i)
 		continue
 	#elif control == 'fail':
-	else:
-		with open('results2.txt', 'a') as f:
-    			f.write('fail,'+i)
 	#pdb.set_trace()
